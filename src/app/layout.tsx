@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {Toaster} from "react-hot-toast";
-import Header from "@/components/layout/Header";
+import Header from "@/components/Header";
 import {ReactNode} from "react";
 
 export const metadata: Metadata = {

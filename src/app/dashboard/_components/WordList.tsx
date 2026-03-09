@@ -1,14 +1,10 @@
 import React from 'react';
-import {auth} from "@/auth";
-import {redirect} from "next/navigation";
 import {getWordsByOwnerId} from "@/features/words/queries";
+import {mustGetSessionUser} from "@/lib/auth-utils";
 
 async function WordList() {
-    const session = await auth();
-    if (!session?.user?.id) {
-        redirect('/login');
-    }
-    const words = await getWordsByOwnerId(session.user.id);
+    const user = await mustGetSessionUser();
+    const words = await getWordsByOwnerId(user.id);
 
     return (
         <ul>
