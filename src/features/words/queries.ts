@@ -1,12 +1,15 @@
 import {wordsTable} from "@/db/words";
 import db from "@/database";
 import {eq} from "drizzle-orm";
+import {DbWord, DbWordInsert} from "@/features/words/schemas";
 
 
-export async function createWord(word: typeof wordsTable.$inferInsert): Promise<void> {
+export async function createWordDb(word: DbWordInsert): Promise<void> {
+    console.log("Inserting word into DB: ", word);
     await db.insert(wordsTable).values(word);
 }
 
-export async function getWordsByOwnerId(ownerId: string): Promise<typeof wordsTable.$inferSelect[]> {
-    return db.select().from(wordsTable).where(eq(wordsTable.ownerId, ownerId));
+export async function getUserWordsDb(userId: string): Promise<DbWord[]> {
+    console.log("Fetching words for user: ", userId);
+    return db.select().from(wordsTable).where(eq(wordsTable.ownerId, userId));
 }

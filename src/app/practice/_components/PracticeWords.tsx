@@ -1,10 +1,9 @@
-import React from 'react';
-import {getWordsByOwnerId} from "@/features/words/queries";
+import {getUserWordsAction} from "@/features/words/actions";
 import {mustGetSessionUser} from "@/lib/auth-utils";
 
 async function PracticeWords() {
     const user = await mustGetSessionUser();
-    const words = await getWordsByOwnerId(user.id);
+    const words = await getUserWordsAction(user.id);
 
     return (
         <div>

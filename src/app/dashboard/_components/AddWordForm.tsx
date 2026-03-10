@@ -2,18 +2,18 @@
 
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {createWordAction} from "@/app/dashboard/action";
 import toast from "react-hot-toast";
 import {ConjugationTypes} from "@/lib/constants";
 import {wordSchema} from "@/features/words/schemas";
-import {Word} from "@/features/words/types";
+import {WordFormData} from "@/features/words/types";
+import {createWordAction} from "@/features/words/actions";
 
 function AddWordForm() {
-    const {register, handleSubmit, formState: {errors}, setError} = useForm<Word>({
+    const {register, handleSubmit, formState: {errors}, setError} = useForm<WordFormData>({
         resolver: zodResolver(wordSchema)
     });
 
-    async function onSubmit(data: Word){
+    async function onSubmit(data: WordFormData){
         const result = await createWordAction(data);
         if (!result.success){
             toast.error("Failed to create a word");
