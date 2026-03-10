@@ -2,7 +2,7 @@
 
 import {mustGetSessionUser} from "@/lib/auth-utils";
 import {createWordDb, getUserWordsDb} from "@/features/words/queries";
-import {cacheLife, cacheTag} from "next/cache";
+import {cacheLife, cacheTag, revalidateTag, updateTag} from "next/cache";
 import {WordFormData} from "@/features/words/types";
 import {ActionResult} from "@/types/actionResult";
 import {wordSchema, DbWordInsert, DbWord} from "@/features/words/schemas";
@@ -27,6 +27,7 @@ export async function createWordAction(data: WordFormData): Promise<ActionResult
     const wordData: DbWordInsert = {...data, ownerId: user.id};
     try {
         await createWordDb(wordData);
+        updateTag(`user-words-${user.id}`);
         return successActionResult("Word created successfully");
     } catch (error) {
         console.error('Error creating word: ', error);
