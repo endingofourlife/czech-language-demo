@@ -1,10 +1,15 @@
-import React from 'react';
-import PracticeWords from "@/app/practice/_components/PracticeWords";
+import {getUserWordsAction} from "@/features/words/actions";
+import {mustGetSessionUser} from "@/lib/auth-utils";
+import PracticeSession from "@/app/practice/_components/PracticeSession";
 
-function Page() {
+async function Page() {
+    const user = await mustGetSessionUser();
+    const words = await getUserWordsAction(user.id);
+
     return (
         <main>
-            <PracticeWords />
+            <h1>Practice words page</h1>
+            <PracticeSession words={words}/>
         </main>
     );
 }
