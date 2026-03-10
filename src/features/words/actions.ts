@@ -1,7 +1,7 @@
 "use server";
 
 import {mustGetSessionUser} from "@/lib/auth-utils";
-import {createWordDb, getUserWordsDb} from "@/features/words/queries";
+import {createWordDb, deleteWordDb, getUserWordsDb} from "@/features/words/queries";
 import {cacheLife, cacheTag, revalidateTag, updateTag} from "next/cache";
 import {WordFormData} from "@/features/words/types";
 import {ActionResult} from "@/types/actionResult";
@@ -32,5 +32,17 @@ export async function createWordAction(data: WordFormData): Promise<ActionResult
     } catch (error) {
         console.error('Error creating word: ', error);
         return errorActionResult("Failed to create a word");
+    }
+}
+
+export async function deleteWordAction(wordId: number): Promise<ActionResult> {
+    const user = await mustGetSessionUser();
+    try {
+        await deleteWordDb(wordId);
+        updateTag(`user-words-${user.id}`);
+        return successActionResult("Word deleted successfully");
+    } catch (error) {
+        console.error('Error deleting word: ', error);
+        return errorActionResult("Failed to delete the word");
     }
 }

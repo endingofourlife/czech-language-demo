@@ -13,3 +13,8 @@ export async function getUserWordsDb(userId: string): Promise<DbWord[]> {
     console.log("Fetching words for user: ", userId);
     return db.select().from(wordsTable).where(eq(wordsTable.ownerId, userId));
 }
+
+export async function deleteWordDb(wordId: number): Promise<void> {
+    console.log("Deleting word with ID: ", wordId);
+    await db.delete(wordsTable).where(eq(wordsTable.id, wordId));
+}
