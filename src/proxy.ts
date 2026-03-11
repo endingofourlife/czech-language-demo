@@ -1,11 +1,15 @@
-import { auth } from "@/auth"
+import {NextRequest, NextResponse} from "next/server";
+import {checkRouteAccess} from "@/lib/proxy-utils";
 
-export const middleware = auth((req) => {
-    if (!req.auth && req.nextUrl.pathname !== "/login") {
-        const newUrl = new URL("/login", req.nextUrl.origin)
-        return Response.redirect(newUrl)
+export async function proxy(req: NextRequest) {
+    const {pathname} = req.nextUrl
+    const {hasAccess, redirectTo} = await checkRouteAccess(pathname);
+    if (!hasAccess) {
+        const redirectUrl = redirectTo || '/auth';
+        return NextResponse.redirect(new URL(redirectUrl, req.url));
     }
-})
+    return NextResponse.next();
+}
 
 export const config = {
     matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],

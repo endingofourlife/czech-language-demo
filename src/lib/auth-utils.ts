@@ -6,7 +6,7 @@ export async function mustGetSessionUser(): Promise<SessionUser> {
     const session = await auth();
 
     if (!session?.user?.id) {
-        redirect("/login");
+        redirect("/auth");
     }
     return session.user as SessionUser;
 }
