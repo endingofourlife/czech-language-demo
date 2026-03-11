@@ -1,12 +1,12 @@
 import { signOut } from "@/auth"
 
-export function SignOutGoogle() {
+export function SignOutBtn() {
     return (
         <form
             action={async () => {
                 "use server"
                 await signOut({
-                    redirectTo: "/register"
+                    redirectTo: "/auth"
                 })
             }}
         >

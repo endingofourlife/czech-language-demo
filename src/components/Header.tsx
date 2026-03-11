@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import {SignOutBtn} from "@/components/SignOutBtn";
 
 function Header() {
     const navItems = [
@@ -21,6 +22,7 @@ function Header() {
                     ))}
                 </ul>
             </nav>
+            <SignOutBtn />
         </header>
     );
 }
