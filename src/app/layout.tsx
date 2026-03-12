@@ -18,8 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Toaster/>
-        <Header/>
-        {children}
+        <div className="container mx-auto p-2">
+          <Header/>
+          {children}
+        </div>
       </body>
     </html>
   );
