@@ -6,7 +6,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {nounSchema} from "@/features/nouns/schemas";
 import {createNounAction} from "@/features/nouns/actions";
 import toast from "react-hot-toast";
-import FormInput from "@/app/dashboard/_components/FormInput";
+import FormInput from "@/app/(protected)/dashboard/_components/FormInput";
 
 function AddNounForm() {
     const formMethods = useForm<NounFormData>({

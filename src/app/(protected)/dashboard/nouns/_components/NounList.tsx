@@ -1,7 +1,7 @@
 import {DbNoun} from "@/features/nouns/types";
-import WordListLayout from "@/app/dashboard/_components/WordListLayout";
-import WordListItem from "@/app/dashboard/_components/WordListItem";
-import DeleteWordButton from "@/app/dashboard/_components/DeleteWordButton";
+import WordListLayout from "@/app/(protected)/dashboard/_components/WordListLayout";
+import WordListItem from "@/app/(protected)/dashboard/_components/WordListItem";
+import DeleteWordButton from "@/app/(protected)/dashboard/_components/DeleteWordButton";
 import {deleteNounAction} from "@/features/nouns/actions";
 
 interface NounListProps {

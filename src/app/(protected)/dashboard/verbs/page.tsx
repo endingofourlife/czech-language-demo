@@ -1,6 +1,6 @@
 import React from 'react';
-import AddVerbForm from "@/app/dashboard/verbs/_components/AddVerbForm";
-import VerbList from "@/app/dashboard/verbs/_components/VerbList";
+import AddVerbForm from "@/app/(protected)/dashboard/verbs/_components/AddVerbForm";
+import VerbList from "@/app/(protected)/dashboard/verbs/_components/VerbList";
 import {mustGetSessionUser} from "@/lib/auth-utils";
 import {getUserVerbsAction} from "@/features/verbs/actions";
 

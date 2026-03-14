@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {Toaster} from "react-hot-toast";
-import Header from "@/components/Header";
 import {ReactNode} from "react";
 
 export const metadata: Metadata = {
@@ -18,10 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Toaster/>
-        <div className="container mx-auto p-2">
-          <Header/>
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

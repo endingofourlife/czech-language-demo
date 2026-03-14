@@ -1,8 +1,8 @@
 import {DbVerb} from "@/features/verbs/types";
-import WordListLayout from "@/app/dashboard/_components/WordListLayout";
-import WordListItem from "@/app/dashboard/_components/WordListItem";
+import WordListLayout from "@/app/(protected)/dashboard/_components/WordListLayout";
+import WordListItem from "@/app/(protected)/dashboard/_components/WordListItem";
 import {deleteVerbAction} from "@/features/verbs/actions";
-import DeleteWordButton from "@/app/dashboard/_components/DeleteWordButton";
+import DeleteWordButton from "@/app/(protected)/dashboard/_components/DeleteWordButton";
 
 interface VerbListProps {
     verbs: DbVerb[];

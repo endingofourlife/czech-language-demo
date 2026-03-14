@@ -1,7 +1,7 @@
 import {mustGetSessionUser} from "@/lib/auth-utils";
 import {getUserNounsAction} from "@/features/nouns/actions";
-import AddNounForm from "@/app/dashboard/nouns/_components/AddNounForm";
-import NounList from "@/app/dashboard/nouns/_components/NounList";
+import AddNounForm from "@/app/(protected)/dashboard/nouns/_components/AddNounForm";
+import NounList from "@/app/(protected)/dashboard/nouns/_components/NounList";
 
 async function Page() {
     const user = await mustGetSessionUser();

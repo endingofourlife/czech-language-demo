@@ -1,11 +1,11 @@
 "use client";
 
 import {FormProvider, useForm} from "react-hook-form";
-import FormInput from "@/app/dashboard/_components/FormInput";
+import FormInput from "@/app/(protected)/dashboard/_components/FormInput";
 import {VerbFormData} from "@/features/verbs/types";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {verbSchema} from "@/features/verbs/schemas";
-import {FormSelect} from "@/app/dashboard/_components/FormSelect";
+import {FormSelect} from "@/app/(protected)/dashboard/_components/FormSelect";
 import {ConjugationTypes} from "@/lib/constants";
 import {createVerbAction} from "@/features/verbs/actions";
 import toast from "react-hot-toast";

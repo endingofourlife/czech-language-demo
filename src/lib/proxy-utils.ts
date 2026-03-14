@@ -6,7 +6,7 @@ interface hasAccessResult {
 }
 
 export async function checkRouteAccess(pathname: string): Promise<hasAccessResult> {
-    const publicRoutes = ['/', '/auth'];
+    const publicRoutes = ['/auth'];
 
     const session = await auth();
 

@@ -4,8 +4,8 @@ import {DbWord} from "@/features/verbs/schemas";
 import {useState} from "react";
 import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronouns} from "@/lib/constants";
-import NoWordsCard from "@/app/practice/_components/NoWordsCard";
-import QuestionCard from "@/app/practice/_components/QuestionCard";
+import NoWordsCard from "@/app/(protected)/practice/_components/NoWordsCard";
+import QuestionCard from "@/app/(protected)/practice/_components/QuestionCard";
 
 type PracticeSessionProps = {
     words: DbWord[]

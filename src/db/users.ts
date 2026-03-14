@@ -11,7 +11,8 @@ import type { AdapterAccountType } from "@auth/core/adapters"
 export const users = pgTable("users", {
     id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
     // auth fields
-    email: text("email").unique().notNull(),
+    // email is optional because users can sign in with OAuth without providing an email
+    email: text("email").unique(),
     googleId: text('google_id').unique(),
     name: text("google_name"),
     image: text("google_avatar"),
