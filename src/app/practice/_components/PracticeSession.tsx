@@ -1,6 +1,6 @@
 "use client";
 
-import {DbWord} from "@/features/words/schemas";
+import {DbWord} from "@/features/verbs/schemas";
 import {useState} from "react";
 import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronouns} from "@/lib/constants";

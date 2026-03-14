@@ -1,7 +1,7 @@
 import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { users } from "./users";
 
-export const nouns = pgTable("nouns", {
+export const nounsTable = pgTable("nouns", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     word: text("word").notNull().unique(),
     associations: text("associations").notNull(),
@@ -12,6 +12,3 @@ export const nouns = pgTable("nouns", {
         .references(() => users.id, { onDelete: "cascade" })
         .notNull(),
 });
-
-export type DbNoun = typeof nouns.$inferSelect;
-export type DbNewNoun = typeof nouns.$inferInsert;

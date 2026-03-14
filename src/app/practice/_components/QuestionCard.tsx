@@ -1,6 +1,6 @@
 "use client";
 
-import {DbWord} from "@/features/words/schemas";
+import {DbWord} from "@/features/verbs/schemas";
 import QuestionForm from "@/app/practice/_components/QuestionForm";
 import {useState} from "react";
 

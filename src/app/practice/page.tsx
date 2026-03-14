@@ -1,10 +1,10 @@
-import {getUserWordsAction} from "@/features/words/actions";
+import {getUserVerbsAction} from "@/features/verbs/actions";
 import {mustGetSessionUser} from "@/lib/auth-utils";
 import PracticeSession from "@/app/practice/_components/PracticeSession";
 
 async function Page() {
     const user = await mustGetSessionUser();
-    const words = await getUserWordsAction(user.id);
+    const words = await getUserVerbsAction(user.id);
 
     return (
         <main>
