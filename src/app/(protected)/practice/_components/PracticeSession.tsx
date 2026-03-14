@@ -5,10 +5,10 @@ import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronouns} from "@/lib/constants";
 import NoWordsCard from "@/app/(protected)/practice/_components/NoWordsCard";
 import QuestionCard from "@/app/(protected)/practice/_components/QuestionCard";
-import {DbNoun} from "@/features/nouns/types";
+import {DbVerb} from "@/features/verbs/types";
 
 type PracticeSessionProps = {
-    words: DbNoun[]
+    words: DbVerb[]
 }
 
 function PracticeSession({words}: PracticeSessionProps) {

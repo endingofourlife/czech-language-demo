@@ -1,5 +1,5 @@
 // TODO: Add enum instead of string literal types
-export const ConjugationTypes: string[] = ["DELAT","ROZUMET","CIST","PRACOVAT","IRREGULAR"] as const;
+export const ConjugationTypes = ["DELAT","ROZUMET","CIST","PRACOVAT","IRREGULAR"] as const;
 export type ConjugationType = typeof ConjugationTypes[number];
 
 export const CzechPronouns: string[] = ["já", "ty", "on", "ona", "ono / to", "my", "vy", "oni"] as const;

@@ -1,6 +1,7 @@
-import {DbNewNoun, DbNoun, nounsTable} from "@/db/nouns";
+import {nounsTable} from "@/db/nouns";
 import db from "@/database";
 import {eq} from "drizzle-orm";
+import {DbNewNoun, DbNoun} from "@/features/nouns/types";
 
 export async function createNounDb(noun: DbNewNoun): Promise<void> {
     console.log("Inserting noun into DB: ", noun);

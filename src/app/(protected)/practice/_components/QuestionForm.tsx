@@ -4,11 +4,12 @@ import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {checkAnswer} from "@/lib/czech-utils";
+import {ConjugationType} from "@/lib/constants";
 
 interface QuestionFormProps {
     pronoun: string;
     infinitive: string;
-    conjugationType: string;
+    conjugationType: ConjugationType;
     onNext: () => void;
 }
 
