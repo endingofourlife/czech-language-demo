@@ -1,14 +1,15 @@
 "use client";
 
 import {SyntheticEvent, useTransition} from "react";
-import {deleteWordAction} from "@/features/words/actions";
 import toast from "react-hot-toast";
+import {ActionResult} from "@/types/actionResult";
 
 interface DeleteWordFormProps {
     wordId: number;
+    serverAction: (id: number) => Promise<ActionResult>;
 }
 
-function DeleteWordButton({ wordId }: DeleteWordFormProps) {
+function DeleteWordButton({ wordId, serverAction }: DeleteWordFormProps) {
     const [isPending, startTransition] = useTransition();
 
     const handleSubmit = (e: SyntheticEvent) => {
@@ -17,7 +18,7 @@ function DeleteWordButton({ wordId }: DeleteWordFormProps) {
         if (!confirm("Are you sure you want to delete this word?")) return;
 
         startTransition(async () => {
-            const result = await deleteWordAction(wordId);
+            const result = await serverAction(wordId);
 
             if (result.success) {
                 toast.success("The word has been deleted successfully");

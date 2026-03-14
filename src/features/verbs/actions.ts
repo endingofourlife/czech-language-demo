@@ -1,48 +1,50 @@
 "use server";
 
 import {mustGetSessionUser} from "@/lib/auth-utils";
-import {createWordDb, deleteWordDb, getUserWordsDb} from "@/features/words/queries";
-import {cacheLife, cacheTag, revalidateTag, updateTag} from "next/cache";
-import {WordFormData} from "@/features/words/types";
+import {createVerbDb, deleteVerbDb, getUserVerbsDb} from "@/features/verbs/queries";
+import {cacheLife, cacheTag, updateTag} from "next/cache";
+import {DbNewVerb, DbVerb, VerbFormData} from "@/features/verbs/types";
 import {ActionResult} from "@/types/actionResult";
-import {wordSchema, DbWordInsert, DbWord} from "@/features/words/schemas";
+import {verbSchema} from "@/features/verbs/schemas";
 import {errorActionResult, successActionResult} from "@/lib/action-utils";
 
-export async function getUserWordsAction(userId: string): Promise<DbWord[]>{
+const getCacheKey = (userId: string): string => "user-verbs-" + userId;
+
+export async function getUserVerbsAction(userId: string): Promise<DbVerb[]>{
     "use cache"
     cacheLife("days");
-    cacheTag(`user-words-${userId}`);
+    cacheTag(getCacheKey(userId));
 
-    return await getUserWordsDb(userId);
+    return await getUserVerbsDb(userId);
 }
 
-export async function createWordAction(data: WordFormData): Promise<ActionResult> {
+export async function createVerbAction(data: VerbFormData): Promise<ActionResult> {
     const user = await mustGetSessionUser();
 
-    const validatedWord = wordSchema.safeParse(data);
-    if (!validatedWord.success){
-        return errorActionResult("Invalid word data");
+    const validatedVerb = verbSchema.safeParse(data);
+    if (!validatedVerb.success){
+        return errorActionResult("Invalid verb data");
     }
 
-    const wordData: DbWordInsert = {...data, ownerId: user.id};
+    const verbData: DbNewVerb = {...data, ownerId: user.id};
     try {
-        await createWordDb(wordData);
-        updateTag(`user-words-${user.id}`);
-        return successActionResult("Word created successfully");
+        await createVerbDb(verbData);
+        updateTag(getCacheKey(user.id));
+        return successActionResult("Verb created successfully");
     } catch (error) {
-        console.error('Error creating word: ', error);
-        return errorActionResult("Failed to create a word");
+        console.error('Error creating verb: ', error);
+        return errorActionResult("Failed to create a verb");
     }
 }
 
-export async function deleteWordAction(wordId: number): Promise<ActionResult> {
+export async function deleteVerbAction(verbId: number): Promise<ActionResult> {
     const user = await mustGetSessionUser();
     try {
-        await deleteWordDb(wordId);
-        updateTag(`user-words-${user.id}`);
-        return successActionResult("Word deleted successfully");
+        await deleteVerbDb(verbId);
+        updateTag(getCacheKey(user.id));
+        return successActionResult("Verb deleted successfully");
     } catch (error) {
-        console.error('Error deleting word: ', error);
-        return errorActionResult("Failed to delete the word");
+        console.error('Error deleting verb: ', error);
+        return errorActionResult("Failed to delete the verb");
     }
 }

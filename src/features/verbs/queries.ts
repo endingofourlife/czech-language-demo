@@ -1,20 +1,19 @@
-import {wordsTable} from "@/db/words";
 import db from "@/database";
 import {eq} from "drizzle-orm";
-import {DbWord, DbWordInsert} from "@/features/words/schemas";
+import {DbNewVerb, DbVerb} from "@/features/verbs/types";
+import {verbsTable} from "@/db/verbs";
 
-
-export async function createWordDb(word: DbWordInsert): Promise<void> {
-    console.log("Inserting word into DB: ", word);
-    await db.insert(wordsTable).values(word);
+export async function createVerbDb(verb: DbNewVerb): Promise<void> {
+    console.log("Inserting verb into DB: ", verb);
+    await db.insert(verbsTable).values(verb);
 }
 
-export async function getUserWordsDb(userId: string): Promise<DbWord[]> {
-    console.log("Fetching words for user: ", userId);
-    return db.select().from(wordsTable).where(eq(wordsTable.ownerId, userId));
+export async function getUserVerbsDb(userId: string): Promise<DbVerb[]> {
+    console.log("Fetching verbs for user: ", userId);
+    return db.select().from(verbsTable).where(eq(verbsTable.ownerId, userId));
 }
 
-export async function deleteWordDb(wordId: number): Promise<void> {
-    console.log("Deleting word with ID: ", wordId);
-    await db.delete(wordsTable).where(eq(wordsTable.id, wordId));
+export async function deleteVerbDb(verbId: number): Promise<void> {
+    console.log("Deleting verb with ID: ", verbId);
+    await db.delete(verbsTable).where(eq(verbsTable.id, verbId));
 }

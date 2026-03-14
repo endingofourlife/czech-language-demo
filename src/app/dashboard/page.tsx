@@ -1,13 +1,20 @@
-import React from 'react';
-import AddWordForm from "@/app/dashboard/_components/AddWordForm";
-import WordList from "@/app/dashboard/_components/WordList";
+import Link from "next/link";
 
 function Page() {
+    const navItems = [
+        { name: 'verbs', href: '/dashboard/verbs' },
+        { name: 'nouns', href: '/dashboard/nouns' },
+    ]
     return (
         <main>
             <h1>Dashboard page</h1>
-            <AddWordForm />
-            <WordList />
+            <ul>
+                {navItems.map(item => (
+                    <li key={item.href}>
+                        <Link href={item.href}>{item.name}</Link>
+                    </li>
+                ))}
+            </ul>
         </main>
     );
 }

@@ -1,4 +1,7 @@
 import {z} from "zod";
-import {wordSchema} from "@/features/words/schemas";
+import {verbSchema} from "@/features/verbs/schemas";
+import {verbsTable} from "@/db/verbs";
 
-export type WordFormData = z.infer<typeof wordSchema>;
+export type VerbFormData = z.infer<typeof verbSchema>;
+export type DbVerb = typeof verbsTable.$inferSelect;
+export type DbNewVerb = typeof verbsTable.$inferInsert;
