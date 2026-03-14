@@ -1,8 +1,8 @@
-import {integer, pgTable, text, timestamp} from "drizzle-orm/pg-core";
+import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { users } from "./users";
 import {ConjugationTypeEnum} from "@/db/enums";
-import {users} from "@/db/users";
 
-export const wordsTable = pgTable("words", {
+export const verbsTable = pgTable("verbs", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     infinitive: text("infinitive").notNull().unique(),
     associations: text("associations").notNull(),
@@ -10,7 +10,7 @@ export const wordsTable = pgTable("words", {
     createdAt: timestamp("created_at").defaultNow(),
 
     // relations
-    ownerId: text("owner_id").references(() => users.id, { onDelete: "cascade" }),
+    ownerId: text("owner_id")
+        .references(() => users.id, { onDelete: "cascade" })
+        .notNull(),
 });
-
-export type NewWord = typeof wordsTable.$inferInsert;
