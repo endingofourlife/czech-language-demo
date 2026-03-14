@@ -1,14 +1,14 @@
 "use client";
 
-import {DbWord} from "@/features/verbs/schemas";
 import {useState} from "react";
 import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronouns} from "@/lib/constants";
 import NoWordsCard from "@/app/(protected)/practice/_components/NoWordsCard";
 import QuestionCard from "@/app/(protected)/practice/_components/QuestionCard";
+import {DbNoun} from "@/features/nouns/types";
 
 type PracticeSessionProps = {
-    words: DbWord[]
+    words: DbNoun[]
 }
 
 function PracticeSession({words}: PracticeSessionProps) {

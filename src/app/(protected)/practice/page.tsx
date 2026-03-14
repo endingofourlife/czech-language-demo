@@ -1,15 +1,22 @@
-import {getUserVerbsAction} from "@/features/verbs/actions";
-import {mustGetSessionUser} from "@/lib/auth-utils";
-import PracticeSession from "@/app/(protected)/practice/_components/PracticeSession";
+import Link from "next/link";
 
 async function Page() {
-    const user = await mustGetSessionUser();
-    const words = await getUserVerbsAction(user.id);
-
+    const navItems = [
+        {name: 'verbs', href: '/practice/verbs'},
+        {name: 'nouns', href: '/practice/nouns'},
+    ]
     return (
         <main>
             <h1>Practice words page</h1>
-            <PracticeSession words={words}/>
+            <ul>
+                {navItems.map(item => (
+                    <li key={item.href}>
+                        <Link href={item.href}>
+                            {item.name}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </main>
     );
 }

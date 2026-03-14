@@ -1,12 +1,12 @@
 "use client";
 
-import {DbWord} from "@/features/verbs/schemas";
 import QuestionForm from "@/app/(protected)/practice/_components/QuestionForm";
 import {useState} from "react";
+import {DbVerb} from "@/features/verbs/types";
 
 interface QuestionCardProps {
     pronoun: string;
-    word: DbWord;
+    word: DbVerb;
     onNext: () => void;
 }
 
