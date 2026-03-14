@@ -19,14 +19,14 @@ export async function getUserVerbsAction(userId: string): Promise<DbVerb[]>{
 }
 
 export async function createVerbAction(data: VerbFormData): Promise<ActionResult> {
-    const user = await mustGetSessionUser();
-
     const validatedVerb = verbSchema.safeParse(data);
     if (!validatedVerb.success){
         return errorActionResult("Invalid verb data");
     }
 
+    const user = await mustGetSessionUser();
     const verbData: DbNewVerb = {...data, ownerId: user.id};
+
     try {
         await createVerbDb(verbData);
         updateTag(getCacheKey(user.id));
