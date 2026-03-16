@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+// TODO: Many bugs when creating a word. No message when user HAS created the word,
+// TODO: bugs when wants to create more than 1 in a row with reset()
 function Page() {
     const navItems = [
         { name: 'verbs', href: '/dashboard/verbs' },

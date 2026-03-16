@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 
 function Layout({children}: { children: ReactNode }) {
     return (
-        <div className="container px-4 md:px-6">
+        <div className="min-h-dvh bg-primary-bg text-white">
             <Header />
             {children}
         </div>
