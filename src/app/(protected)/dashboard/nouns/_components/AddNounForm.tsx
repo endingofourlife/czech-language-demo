@@ -21,7 +21,9 @@ function AddNounForm() {
             return;
         }
         toast.success('the word has been added successfully');
-        formMethods.reset();
+        // manually because reset() is buggy
+        formMethods.resetField("word")
+        formMethods.resetField("associations")
     }
 
     return (
