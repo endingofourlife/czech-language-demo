@@ -4,7 +4,7 @@ import Link from "next/link";
 // TODO: bugs when wants to create more than 1 in a row with reset()
 function Page() {
     return (
-        <main className="flex flex-col items-center gap-10 py-20 px-2">
+        <main className="flex flex-col items-center gap-10 py-20 px-2 container mx-auto">
             <h1 className="text-3xl text-primary-text text-center font-bold">What is your target for today?</h1>
             <div className="w-full max-w-lg">
                 <ul className="flex flex-col gap-4">
