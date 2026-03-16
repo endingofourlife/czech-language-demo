@@ -6,7 +6,7 @@ interface WordListLayoutProps {
 
 function WordListLayout({ children}: WordListLayoutProps) {
     return (
-        <ul>
+        <ul className="flex flex-col gap-4 mt-4 w-full items-center">
             {children}
         </ul>
     );

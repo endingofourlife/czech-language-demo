@@ -10,6 +10,7 @@ async function Page() {
     return (
         <main className="container mx-auto px-4 sm:px-6 lg:px-8">
             <DashboardNavigation currentPage={'verbs'}/>
+            <h1 className="text-secondary-text uppercase tracking-wide">Your nouns - {verbs.length}</h1>
             <VerbList verbs={verbs} />
         </main>
     );

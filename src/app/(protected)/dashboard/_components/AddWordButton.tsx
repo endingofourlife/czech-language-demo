@@ -12,7 +12,7 @@ function AddWordButton({ href }: AddWordButtonProps) {
             border border-primary-stroke px-6 py-2 rounded-md text-xl text-primary-text
             transition-all duration-300 ease-in-out
             hover:shadow-md hover:shadow-black/5
-            hover:bg-primary-stroke/30
+            hover:bg-secondary-bg
             active:shadow-sm"
         >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
