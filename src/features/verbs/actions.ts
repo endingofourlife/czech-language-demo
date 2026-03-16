@@ -18,6 +18,7 @@ export async function getUserVerbsAction(userId: string): Promise<DbVerb[]>{
     return await getUserVerbsDb(userId);
 }
 
+// TODO: handle cases when user creates the same word (verb or noun) twice.
 export async function createVerbAction(data: VerbFormData): Promise<ActionResult> {
     const validatedVerb = verbSchema.safeParse(data);
     if (!validatedVerb.success){

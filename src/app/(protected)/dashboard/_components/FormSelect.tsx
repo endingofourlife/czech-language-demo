@@ -15,7 +15,7 @@ export function FormSelect({ name, label, options }: FormSelectProps) {
         <div className="flex flex-col">
             <label htmlFor={name} className="mb-1 font-medium">{label}</label>
             <select {...register(name)} id={name} className="border rounded p-2">
-                <option value="">Select {label}</option>
+                {/*<option value="">Select {label}</option>*/}
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>
                         {option.label}

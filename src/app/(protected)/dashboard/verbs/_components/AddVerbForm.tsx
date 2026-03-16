@@ -12,7 +12,12 @@ import toast from "react-hot-toast";
 
 function AddVerbForm() {
     const formMethods = useForm<VerbFormData>({
-        resolver: zodResolver(verbSchema)
+        resolver: zodResolver(verbSchema),
+        defaultValues: {
+            infinitive: '',
+            associations: '',
+            conjugationType: ConjugationTypes[0],
+        }
     });
 
     async function onSubmit(data: VerbFormData){
@@ -23,7 +28,10 @@ function AddVerbForm() {
             return;
         }
         toast.success('the word has been added successfully');
-        formMethods.reset();
+        // using manually since reset() is buggy
+        formMethods.resetField('infinitive');
+        formMethods.resetField('associations');
+        formMethods.resetField('conjugationType');
     }
 
     return (

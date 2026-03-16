@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-// TODO: Many bugs when creating a word. No message when user HAS created the word,
-// TODO: bugs when wants to create more than 1 in a row with reset()
+// TODO: No message when user HAS created the word
 function Page() {
     return (
         <main className="flex flex-col items-center gap-10 py-20 px-2 container mx-auto">
