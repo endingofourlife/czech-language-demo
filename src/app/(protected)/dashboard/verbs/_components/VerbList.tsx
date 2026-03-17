@@ -8,7 +8,9 @@ interface VerbListProps {
     verbs: DbVerb[];
 }
 
-function VerbList({ verbs }: VerbListProps) {
+async function VerbList({ verbs }: VerbListProps) {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     if (verbs.length === 0) {
         return (
             <p className="text-secondary-text text-center text-lg mt-6">No verbs added yet. Start by adding your first verb!</p>
