@@ -4,7 +4,7 @@ import CircleSpinner from "@/components/CircleSpinner";
 function Loading() {
     return (
         <main className="min-h-dvh flex items-center justify-center bg-primary-bg text-primary-text">
-            <CircleSpinner size={30} />
+            <CircleSpinner size={'lg'} />
         </main>
     );
 }
