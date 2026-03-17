@@ -6,6 +6,7 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 async function HeaderAuthController() {
     const session = await auth();
+    await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate loading delay
 
     if (!session) {
         return (

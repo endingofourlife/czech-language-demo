@@ -1,10 +1,10 @@
 import React from 'react';
-import {ScaleLoader} from "react-spinners";
+import CircleSpinner from "@/components/CircleSpinner";
 
 function Loading() {
     return (
         <main className="min-h-dvh flex items-center justify-center bg-primary-bg text-primary-text">
-            <ScaleLoader width={100} />
+            <CircleSpinner size={30} />
         </main>
     );
 }

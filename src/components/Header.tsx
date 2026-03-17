@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import Link from "next/link";
 import HeaderAuthController from "@/components/HeaderAuthController";
-import {CircleLoader} from "react-spinners";
+import CircleSpinner from "@/components/CircleSpinner";
 
 function Header() {
     return (
@@ -14,8 +14,7 @@ function Header() {
                 <div className="flex items-center gap-4">
                     <Suspense fallback={
                         <div className="flex items-center gap-2">
-                            <CircleLoader size={24} color="#6B7280" />
-                            <span className="text-sm text-gray-500">Loading...</span>
+                            <CircleSpinner />
                         </div>
                     }>
                         <HeaderAuthController />
