@@ -28,12 +28,13 @@ function AddNounForm() {
 
     return (
         <FormProvider {...formMethods}>
-            <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-                <FormInput name={"word"} label={"word"} placeholder={"e.g., divka"} />
-                <FormInput name={"associations"} label={"associations"} placeholder={"What does it remind you of?"} />
+            <form onSubmit={formMethods.handleSubmit(onSubmit)} className="w-full max-w-lg mx-auto bg-secondary-bg border border-primary-stroke rounded-2xl px-8 py-10 flex flex-col gap-8">
+                <FormInput name={"word"} label={"Word"} placeholder={"e.g., divka"} />
+                <FormInput name={"associations"} label={"Associations"} placeholder={"What does it remind you of?"} />
                 <button
                     type="submit"
                     disabled={formMethods.formState.isSubmitting}
+                    className="w-full bg-primary-accent/80 hover:bg-primary-accent text-white font-bold text-lg py-3.5 rounded-lg transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     Create
                 </button>

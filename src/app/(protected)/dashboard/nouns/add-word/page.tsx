@@ -1,14 +1,14 @@
-import React from 'react';
-import AddVerbForm from "@/app/(protected)/dashboard/verbs/_components/AddVerbForm";
 import BackNavButton from "@/app/(protected)/dashboard/_components/BackNavButton";
+import React from "react";
+import AddNounForm from "@/app/(protected)/dashboard/nouns/_components/AddNounForm";
 
 function Page() {
     return (
         <>
             <nav className="min-h-12 my-10 flex items-center">
-                <BackNavButton href={"/dashboard/verbs"} />
+                <BackNavButton href={"/dashboard/nouns"} />
             </nav>
-            <AddVerbForm />
+            <AddNounForm />
         </>
     );
 }

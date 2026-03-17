@@ -12,12 +12,7 @@ import toast from "react-hot-toast";
 
 function AddVerbForm() {
     const formMethods = useForm<VerbFormData>({
-        resolver: zodResolver(verbSchema),
-        defaultValues: {
-            infinitive: '',
-            associations: '',
-            conjugationType: ConjugationTypes[0],
-        }
+        resolver: zodResolver(verbSchema)
     });
 
     async function onSubmit(data: VerbFormData){
@@ -36,9 +31,9 @@ function AddVerbForm() {
 
     return (
         <FormProvider {...formMethods}>
-            <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-                <FormInput name={"infinitive"} label={"infinitive"} placeholder={"e.g., cist, pracovat"} />
-                <FormInput name={"associations"} label={"associations"} placeholder={"What does it remind you of?"}/>
+            <form onSubmit={formMethods.handleSubmit(onSubmit)} className="w-full max-w-lg mx-auto bg-secondary-bg border border-primary-stroke rounded-2xl px-8 py-10 flex flex-col gap-8">
+                <FormInput name={"infinitive"} label={"Infinitive"} placeholder={"e.g., cist, pracovat"} />
+                <FormInput name={"associations"} label={"Associations"} placeholder={"What does it remind you of?"}/>
                 <FormSelect
                     name="conjugationType"
                     label="Conjugation Type"
@@ -47,8 +42,9 @@ function AddVerbForm() {
                 <button
                     type="submit"
                     disabled={formMethods.formState.isSubmitting}
+                    className="w-full bg-primary-accent/80 hover:bg-primary-accent text-white font-bold text-lg py-3.5 rounded-lg transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Create
+                    {formMethods.formState.isSubmitting ? 'Creating...' : 'Create'}
                 </button>
             </form>
         </FormProvider>

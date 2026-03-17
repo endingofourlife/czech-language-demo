@@ -1,4 +1,3 @@
-// CircleSpinner.tsx
 interface CircleSpinnerProps {
     size?: 'sm' | 'md' | 'lg' | 'xl';
 }
