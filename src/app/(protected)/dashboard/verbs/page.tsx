@@ -1,19 +1,16 @@
 import DashboardNavigation from "@/app/(protected)/dashboard/_components/DashboardNavigation";
 import VerbsContent from "@/app/(protected)/dashboard/verbs/_components/VerbsContent";
-import CircleSpinner from "@/components/CircleSpinner";
 import {Suspense} from "react";
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import CircleSpinner from "@/components/CircleSpinner";
 
 async function Page() {
-    const user = await mustGetSessionUser();
-
     return (
-        <>
+        <main>
             <DashboardNavigation currentPage={'verbs'}/>
             <Suspense fallback={<CircleSpinner size={'lg'} />}>
-                <VerbsContent userId={user.id} />
+                <VerbsContent />
             </Suspense>
-        </>
+        </main>
     );
 }
 

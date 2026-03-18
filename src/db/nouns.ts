@@ -3,7 +3,7 @@ import { users } from "./users";
 
 export const nounsTable = pgTable("nouns", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    word: text("word").notNull().unique(),
+    word: text("word").notNull(),
     associations: text("associations").notNull(),
     createdAt: timestamp("created_at").defaultNow(),
 

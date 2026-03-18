@@ -4,7 +4,7 @@ import {ConjugationTypeEnum} from "@/db/enums";
 
 export const verbsTable = pgTable("verbs", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    infinitive: text("infinitive").notNull().unique(),
+    infinitive: text("infinitive").notNull(),
     associations: text("associations").notNull(),
     conjugationType: ConjugationTypeEnum().notNull(),
     createdAt: timestamp("created_at").defaultNow(),
