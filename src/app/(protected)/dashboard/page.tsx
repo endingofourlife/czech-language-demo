@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-// TODO: No message when user HAS created the word
 function Page() {
     return (
         <main className="flex flex-col items-center gap-10 py-20 px-2 container mx-auto">
