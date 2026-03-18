@@ -5,13 +5,13 @@ import {CzechPronoun, CzechPronouns} from "@/lib/constants";
 import {getRandomVerbsDb} from "@/features/verbs/queries";
 import {getFullConjugatedForm} from "@/lib/czech-utils";
 import {getRandomItems, shuffleArray} from "@/lib/array-utils";
-import {QuizQuestion} from "@/types/quiz";
+import {VerbQuizQuestion} from "@/types/quiz";
 
 async function VerbQuiz() {
     const user = await mustGetSessionUser();
     const verbs = await getRandomVerbsDb(user.id);
 
-    const questions: QuizQuestion[] = verbs.map((verb) => {
+    const questions: VerbQuizQuestion[] = verbs.map((verb) => {
         const pronoun = getRandomFromArray<CzechPronoun>(CzechPronouns);
 
         const correct = getFullConjugatedForm(
