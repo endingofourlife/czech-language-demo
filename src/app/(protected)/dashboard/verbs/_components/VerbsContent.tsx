@@ -1,10 +1,12 @@
 import VerbList from "@/app/(protected)/dashboard/verbs/_components/VerbList";
-import {mustGetSessionUser} from "@/lib/auth-utils";
 import {getUserVerbsAction} from "@/features/verbs/actions";
 
-async function VerbsContent() {
-    const user = await mustGetSessionUser();
-    const verbs = await getUserVerbsAction(user.id);
+interface VerbsContentProps {
+    userId: string;
+}
+
+async function VerbsContent({userId}: VerbsContentProps) {
+    const verbs = await getUserVerbsAction(userId);
     return (
         <>
             <h1 className="text-secondary-text uppercase tracking-wide">
