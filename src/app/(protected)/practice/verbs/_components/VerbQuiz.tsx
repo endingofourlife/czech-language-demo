@@ -1,4 +1,4 @@
-import {mustGetSessionUser} from "@/features/auth/require-session";
+import {mustGetSessionUser} from "@/features/auth/server/require-session";
 import VerbQuizClient from "@/app/(protected)/practice/verbs/_components/VerbQuizClient";
 import {CzechPronoun, CzechPronouns} from "@/lib/constants";
 import {getRandomVerbsDb} from "@/features/verbs/queries";

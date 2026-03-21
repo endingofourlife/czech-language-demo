@@ -1,5 +1,5 @@
 import { pgEnum } from "drizzle-orm/pg-core";
-import {ConjugationTypes} from "@/lib/constants";
+import {ConjugationTypes} from "@/shared/constants/conjugations";
 
 export const ConjugationTypeEnum = pgEnum(
     "conjugation_type",

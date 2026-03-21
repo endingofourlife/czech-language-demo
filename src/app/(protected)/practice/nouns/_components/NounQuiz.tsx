@@ -1,5 +1,5 @@
 import React from 'react';
-import {mustGetSessionUser} from "@/features/auth/require-session";
+import {mustGetSessionUser} from "@/features/auth/server/require-session";
 import {getRandomNounsDb} from "@/features/nouns/queries";
 import {NounQuizQuestion} from "@/shared/types/quiz";
 import {DbNoun} from "@/features/nouns/types";

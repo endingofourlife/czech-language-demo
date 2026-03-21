@@ -1,6 +1,6 @@
 "use server";
 
-import {mustGetSessionUser} from "@/features/auth/require-session";
+import {mustGetSessionUser} from "@/features/auth/server/require-session";
 import {createVerbDb, deleteVerbDb, getUserVerbsDb} from "@/features/verbs/queries";
 import {cacheLife, cacheTag, updateTag} from "next/cache";
 import {DbNewVerb, DbVerb, VerbFormData} from "@/features/verbs/types";

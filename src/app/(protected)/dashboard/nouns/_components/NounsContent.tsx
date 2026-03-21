@@ -1,5 +1,5 @@
 import NounList from "@/app/(protected)/dashboard/nouns/_components/NounList";
-import {mustGetSessionUser} from "@/features/auth/require-session";
+import {mustGetSessionUser} from "@/features/auth/server/require-session";
 import {getUserNounsAction} from "@/features/nouns/actions";
 
 async function NounsContent() {

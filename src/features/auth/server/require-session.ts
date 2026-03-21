@@ -1,3 +1,5 @@
+"use server";
+
 import {auth} from "@/auth";
 import {redirect} from "next/navigation";
 import {SessionUser} from "@/shared/types/sessionUser";

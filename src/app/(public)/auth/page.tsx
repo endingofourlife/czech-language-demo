@@ -1,4 +1,4 @@
-import SignInGoogle from "@/app/(public)/auth/_components/SignInGoogle";
+import SignInGoogleBtn from "@/app/(public)/auth/_components/SignInGoogleBtn";
 import SignInGithub from "@/app/(public)/auth/_components/SignInGithub";
 
 function Page() {
@@ -12,7 +12,7 @@ function Page() {
                 <p className="text-secondary-text mt-3 text-md">
                     Sign in to start learning Czech 🇨🇿
                 </p>
-                <SignInGoogle />
+                <SignInGoogleBtn />
                 <SignInGithub />
             </div>
         </main>
