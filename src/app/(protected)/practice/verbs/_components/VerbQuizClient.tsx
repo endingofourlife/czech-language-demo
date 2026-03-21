@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from 'react';
-import {VerbQuizQuestion} from "@/types/quiz";
+import {VerbQuizQuestion} from "@/shared/types/quiz";
 import toast from "react-hot-toast";
 
 interface VerbQuizControllerProps {

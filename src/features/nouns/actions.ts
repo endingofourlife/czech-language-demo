@@ -3,8 +3,8 @@
 import {cacheLife, cacheTag, updateTag} from "next/cache";
 import {createNounDb, deleteNounDb, getUserNounsDb} from "@/features/nouns/queries";
 import {DbNewNoun, DbNoun, NounFormData} from "@/features/nouns/types";
-import {ActionResult} from "@/types/actionResult";
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import {ActionResult} from "@/shared/types/actionResult";
+import {mustGetSessionUser} from "@/features/auth/require-session";
 import {nounSchema} from "@/features/nouns/schemas";
 import {errorActionResult, successActionResult} from "@/lib/action-utils";
 

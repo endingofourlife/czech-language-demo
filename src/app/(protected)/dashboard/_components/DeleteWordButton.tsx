@@ -2,7 +2,7 @@
 
 import {SyntheticEvent, useTransition} from "react";
 import toast from "react-hot-toast";
-import {ActionResult} from "@/types/actionResult";
+import {ActionResult} from "@/shared/types/actionResult";
 
 interface DeleteWordFormProps {
     wordId: number;

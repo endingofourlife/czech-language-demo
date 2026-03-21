@@ -1,6 +1,6 @@
 import VerbList from "@/app/(protected)/dashboard/verbs/_components/VerbList";
 import {getUserVerbsAction} from "@/features/verbs/actions";
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import {mustGetSessionUser} from "@/features/auth/require-session";
 
 async function VerbsContent() {
     const user = await mustGetSessionUser();

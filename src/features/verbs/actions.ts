@@ -1,10 +1,10 @@
 "use server";
 
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import {mustGetSessionUser} from "@/features/auth/require-session";
 import {createVerbDb, deleteVerbDb, getUserVerbsDb} from "@/features/verbs/queries";
 import {cacheLife, cacheTag, updateTag} from "next/cache";
 import {DbNewVerb, DbVerb, VerbFormData} from "@/features/verbs/types";
-import {ActionResult} from "@/types/actionResult";
+import {ActionResult} from "@/shared/types/actionResult";
 import {verbSchema} from "@/features/verbs/schemas";
 import {errorActionResult, successActionResult} from "@/lib/action-utils";
 

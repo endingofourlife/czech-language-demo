@@ -1,7 +1,7 @@
 "use client";
 
 import React, {useState} from 'react';
-import {NounQuizQuestion} from "@/types/quiz";
+import {NounQuizQuestion} from "@/shared/types/quiz";
 import toast from "react-hot-toast";
 
 interface NounQuizClientProps {

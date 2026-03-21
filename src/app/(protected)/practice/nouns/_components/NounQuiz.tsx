@@ -1,9 +1,9 @@
 import React from 'react';
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import {mustGetSessionUser} from "@/features/auth/require-session";
 import {getRandomNounsDb} from "@/features/nouns/queries";
-import {NounQuizQuestion} from "@/types/quiz";
+import {NounQuizQuestion} from "@/shared/types/quiz";
 import {DbNoun} from "@/features/nouns/types";
-import {getRandomItems, shuffleArray} from "@/lib/array-utils";
+import {getRandomSample, shuffle} from "@/shared/lib/random";
 import NounQuizClient from "@/app/(protected)/practice/nouns/_components/NounQuizClient";
 
 async function NounQuiz() {
@@ -14,9 +14,9 @@ async function NounQuiz() {
         const correct = noun.associations;
 
         const otherNouns = nouns.filter(n => n.id !== noun.id);
-        const wrongAnswers = getRandomItems(otherNouns, 3).map((n: DbNoun) => n.associations);
+        const wrongAnswers = getRandomSample(otherNouns, 3).map((n: DbNoun) => n.associations);
 
-        const answers = shuffleArray([correct, ...wrongAnswers]);
+        const answers = shuffle([correct, ...wrongAnswers]);
         return { noun, answers, correctAnswer: correct }
     })
 

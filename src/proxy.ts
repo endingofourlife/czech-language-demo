@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import {checkRouteAccess} from "@/lib/proxy-utils";
+import {checkRouteAccess} from "@/core/server/check-route-access";
 
 export async function proxy(req: NextRequest) {
     const {pathname} = req.nextUrl

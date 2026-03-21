@@ -1,18 +1,17 @@
-import {mustGetSessionUser} from "@/lib/auth-utils";
+import {mustGetSessionUser} from "@/features/auth/require-session";
 import VerbQuizClient from "@/app/(protected)/practice/verbs/_components/VerbQuizClient";
-import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronoun, CzechPronouns} from "@/lib/constants";
 import {getRandomVerbsDb} from "@/features/verbs/queries";
-import {getFullConjugatedForm} from "@/lib/czech-utils";
-import {getRandomItems, shuffleArray} from "@/lib/array-utils";
-import {VerbQuizQuestion} from "@/types/quiz";
+import {getFullConjugatedForm} from "@/shared/lib/czech-conjugation";
+import {getRandomElement, getRandomSample, shuffle} from "@/shared/lib/random";
+import {VerbQuizQuestion} from "@/shared/types/quiz";
 
 async function VerbQuiz() {
     const user = await mustGetSessionUser();
     const verbs = await getRandomVerbsDb(user.id);
 
     const questions: VerbQuizQuestion[] = verbs.map((verb) => {
-        const pronoun = getRandomFromArray<CzechPronoun>(CzechPronouns);
+        const pronoun = getRandomElement<CzechPronoun>(CzechPronouns);
 
         const correct = getFullConjugatedForm(
             pronoun,
@@ -22,11 +21,11 @@ async function VerbQuiz() {
 
         const otherPronouns = CzechPronouns.filter(p => p !== pronoun);
 
-        const wrongAnswers = getRandomItems(otherPronouns, 3).map(p =>
+        const wrongAnswers = getRandomSample(otherPronouns, 3).map(p =>
             getFullConjugatedForm(p as CzechPronoun, verb.infinitive, verb.conjugationType)
         );
 
-        const answers = shuffleArray([correct, ...wrongAnswers]);
+        const answers = shuffle([correct, ...wrongAnswers]);
 
         return {
             verb,

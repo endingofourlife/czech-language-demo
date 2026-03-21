@@ -1,11 +1,11 @@
 "use client";
 
 import {useState} from "react";
-import {getRandomFromArray} from "@/lib/random-utils";
 import {CzechPronouns} from "@/lib/constants";
 import NoWordsCard from "@/app/(protected)/practice/_components/NoWordsCard";
 import QuestionCard from "@/app/(protected)/practice/_components/QuestionCard";
 import {DbVerb} from "@/features/verbs/types";
+import {getRandomElement} from "@/shared/lib/random";
 
 type PracticeSessionProps = {
     words: DbVerb[]
@@ -16,12 +16,12 @@ function PracticeSession({words}: PracticeSessionProps) {
     const [currentPronoun, setCurrentPronoun] = useState("");
 
     function startPractice(){
-        setCurrentPronoun(getRandomFromArray<string>(CzechPronouns));
+        setCurrentPronoun(getRandomElement<string>(CzechPronouns));
     }
 
     function handleNextQuestion() {
         setCurrentIndex((currentIndex + 1) % words.length);
-        setCurrentPronoun(getRandomFromArray<string>(CzechPronouns));
+        setCurrentPronoun(getRandomElement<string>(CzechPronouns));
     }
 
     if (words.length === 0) {

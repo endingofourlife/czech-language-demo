@@ -2,9 +2,6 @@
 export const ConjugationTypes = ["DELAT","ROZUMET","CIST","PRACOVAT","IRREGULAR"] as const;
 export type ConjugationType = typeof ConjugationTypes[number];
 
-export const CzechPronouns: string[] = ["já", "ty", "on", "ona", "ono / to", "my", "vy", "oni"] as const;
-export type CzechPronoun = typeof CzechPronouns[number];
-
 export const ConjugationRules: Record<ConjugationType, Record<string, string>> = {
     DELAT: {
         "já": "ám",
@@ -56,17 +53,4 @@ export const ConjugationRules: Record<ConjugationType, Record<string, string>> =
         "vy": "",
         "oni": ""
     }
-};
-
-export const IrregularVerbs: Record<string, Record<string, string>> = {
-    "být": {
-        "já": "jsem",
-        "ty": "jsi",
-        "on": "je",
-        "ona": "je",
-        "ono / to": "je",
-        "my": "jsme",
-        "vy": "jste",
-        "oni": "jsou"
-    },
 };

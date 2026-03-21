@@ -1,6 +1,6 @@
 import {auth} from "@/auth";
 import {redirect} from "next/navigation";
-import {SessionUser} from "@/types/sessionUser";
+import {SessionUser} from "@/shared/types/sessionUser";
 
 export async function mustGetSessionUser(): Promise<SessionUser> {
     const session = await auth();
