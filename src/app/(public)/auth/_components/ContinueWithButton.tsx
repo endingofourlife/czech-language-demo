@@ -2,7 +2,7 @@
 
 import {useFormStatus} from "react-dom";
 import {ReactNode} from "react";
-import PulsingLoader from "@/components/PulsingLoader";
+import PulsingLoader from "@/app/components/PulsingLoader";
 
 interface ContinueWithButtonProps {
     provider: "google" | "gitHub";

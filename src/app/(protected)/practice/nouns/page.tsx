@@ -1,5 +1,5 @@
-import BackNavButton from "@/components/BackNavButton";
-import CircleSpinner from "@/components/CircleSpinner";
+import BackNavButton from "@/app/components/BackNavButton";
+import CircleSpinner from "@/app/components/CircleSpinner";
 import {Suspense} from "react";
 import NounQuiz from "@/app/(protected)/practice/nouns/_components/NounQuiz";
 

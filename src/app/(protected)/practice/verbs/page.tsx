@@ -1,7 +1,7 @@
-import BackNavButton from "@/components/BackNavButton";
+import BackNavButton from "@/app/components/BackNavButton";
 import VerbQuiz from "@/app/(protected)/practice/verbs/_components/VerbQuiz";
 import {Suspense} from "react";
-import CircleSpinner from "@/components/CircleSpinner";
+import CircleSpinner from "@/app/components/CircleSpinner";
 
 async function Page() {
     return (

@@ -1,4 +1,4 @@
-import BackNavButton from "@/components/BackNavButton";
+import BackNavButton from "@/app/components/BackNavButton";
 import React from "react";
 import AddNounForm from "@/app/(protected)/dashboard/nouns/_components/AddNounForm";
 

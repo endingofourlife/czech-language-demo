@@ -1,5 +1,5 @@
 import React from 'react';
-import CircleSpinner from "@/components/CircleSpinner";
+import CircleSpinner from "@/app/components/CircleSpinner";
 
 function Loading() {
     return (

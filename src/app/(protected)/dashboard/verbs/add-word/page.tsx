@@ -1,6 +1,6 @@
 import React from 'react';
 import AddVerbForm from "@/app/(protected)/dashboard/verbs/_components/AddVerbForm";
-import BackNavButton from "@/components/BackNavButton";
+import BackNavButton from "@/app/components/BackNavButton";
 
 function Page() {
     return (

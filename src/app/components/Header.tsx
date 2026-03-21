@@ -1,7 +1,7 @@
 import React, {Suspense} from 'react';
 import Link from "next/link";
-import HeaderAuthController from "@/components/HeaderAuthController";
-import CircleSpinner from "@/components/CircleSpinner";
+import CircleSpinner from "@/app/components/CircleSpinner";
+import HeaderAuthView from "@/app/components/HeaderAuthView";
 
 function Header() {
     return (
@@ -17,7 +17,7 @@ function Header() {
                             <CircleSpinner />
                         </div>
                     }>
-                        <HeaderAuthController />
+                        <HeaderAuthView />
                     </Suspense>
                 </div>
             </nav>

@@ -1,5 +1,5 @@
 import React from 'react';
-import BackNavButton from "@/components/BackNavButton";
+import BackNavButton from "@/app/components/BackNavButton";
 import AddWordButton from "@/app/(protected)/dashboard/_components/AddWordButton";
 import StartPracticeButton from "@/app/(protected)/dashboard/_components/StartPracticeButton";
 
