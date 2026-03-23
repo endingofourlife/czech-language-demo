@@ -3,7 +3,7 @@ import VerbsContent from "@/app/(protected)/dashboard/verbs/_components/VerbsCon
 import {Suspense} from "react";
 import CircleSpinner from "@/app/components/CircleSpinner";
 
-async function Page() {
+function VerbsPage() {
     return (
         <main>
             <DashboardNavigation currentPage={'verbs'}/>
@@ -14,4 +14,4 @@ async function Page() {
     );
 }
 
-export default Page;
+export default VerbsPage;

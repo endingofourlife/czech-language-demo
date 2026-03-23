@@ -3,7 +3,7 @@ import CircleSpinner from "@/app/components/CircleSpinner";
 import {Suspense} from "react";
 import NounsContent from "@/app/(protected)/dashboard/nouns/_components/NounsContent";
 
-async function Page() {
+function NounsPage() {
     return (
         <main>
             <DashboardNavigation currentPage={'nouns'} />
@@ -14,4 +14,4 @@ async function Page() {
     );
 }
 
-export default Page;
+export default NounsPage;
